@@ -5,6 +5,7 @@ defmodule ExTwitter.Model.Tweet do
   ## Reference
   https://dev.twitter.com/overview/api/tweets
   """
+  @derive Jason.Encoder
   defstruct contributors: nil, coordinates: nil, created_at: nil,
     current_user_retweet: nil, display_text_range: nil, entities: nil,
     extended_entities: nil, extended_tweet: nil, favorite_count: nil,
@@ -20,6 +21,7 @@ defmodule ExTwitter.Model.Tweet do
 end
 
 defmodule ExTwitter.Model.Upload do
+  @derive Jason.Encoder
   defstruct expires_after_secs: nil,  media_id: nil, media_id_string: nil, size: nil
   @type t :: %__MODULE__{}
 end
@@ -32,6 +34,7 @@ defmodule ExTwitter.Model.User do
   ## Reference
   https://dev.twitter.com/overview/api/users
   """
+  @derive Jason.Encoder
   defstruct contributors_enabled: nil, created_at: nil,
     default_profile: nil, default_profile_image: nil, description: nil,
     entities: nil, favourites_count: nil, follow_request_sent: nil,
@@ -60,12 +63,14 @@ defmodule ExTwitter.Model.ProfileBanner do
   ## Reference
   https://dev.twitter.com/rest/reference/get/users/profile_banner
   """
+  @derive Jason.Encoder
   defstruct sizes: nil
 
   @type t :: %__MODULE__{}
 end
 
 defmodule ExTwitter.Model.DirectMessage do
+  @derive Jason.Encoder
   defstruct created_at: nil, entities: nil, id: nil, id_str: nil,
     recipient: nil, recipient_id: nil, recipient_screen_name: nil,
     sender: nil, sender_id: nil, sender_screen_name: nil, text: nil
@@ -80,6 +85,7 @@ defmodule ExTwitter.Model.Entities do
   ## Reference
   https://dev.twitter.com/overview/api/entities
   """
+  @derive Jason.Encoder
   defstruct hashtags: nil, media: nil, symbols: nil, urls: nil,
     user_mentions: nil
 
@@ -87,12 +93,14 @@ defmodule ExTwitter.Model.Entities do
 end
 
 defmodule ExTwitter.Model.Trend do
+  @derive Jason.Encoder
   defstruct events: nil, name: nil, promoted_content: nil, query: nil
 
   @type t :: %__MODULE__{}
 end
 
 defmodule ExTwitter.Model.List do
+  @derive Jason.Encoder
   defstruct slug: nil, name: nil, created_at: nil, uri: nil, subscriber_count: nil,
     id_str: nil, member_count: nil, mode: nil, id: nil, full_name: nil,
     description: nil, user: nil, following: nil
@@ -107,6 +115,7 @@ defmodule ExTwitter.Model.Place do
   ## Reference
   https://dev.twitter.com/overview/api/places
   """
+  @derive Jason.Encoder
   defstruct id: nil, url: nil, place_type: nil, name: nil, full_name: nil,
     country_code: nil, country: nil, contained_within: nil,
     bounding_box: nil, attributes: nil
@@ -115,48 +124,56 @@ defmodule ExTwitter.Model.Place do
 end
 
 defmodule ExTwitter.Model.Geo do
+  @derive Jason.Encoder
   defstruct type: nil, coordinates: nil
 
   @type t :: %__MODULE__{}
 end
 
 defmodule ExTwitter.Model.DeletedTweet do
+  @derive Jason.Encoder
   defstruct status: nil
 
   @type t :: %__MODULE__{}
 end
 
 defmodule ExTwitter.Model.Limit do
+  @derive Jason.Encoder
   defstruct track: nil
 
   @type t :: %__MODULE__{}
 end
 
 defmodule ExTwitter.Model.StallWarning do
+  @derive Jason.Encoder
   defstruct code: nil, message: nil, percent_full: nil
 
   @type t :: %__MODULE__{}
 end
 
 defmodule ExTwitter.Model.Cursor do
+  @derive Jason.Encoder
   defstruct items: nil, next_cursor: nil, previous_cursor: nil
 
   @type t :: %__MODULE__{}
 end
 
 defmodule ExTwitter.Model.RequestToken do
+  @derive Jason.Encoder
   defstruct oauth_token: nil, oauth_token_secret: nil, oauth_callback_confirmed: nil
 
   @type t :: %__MODULE__{}
 end
 
 defmodule ExTwitter.Model.AccessToken do
+  @derive Jason.Encoder
   defstruct oauth_token: nil, oauth_token_secret: nil, user_id: nil, screen_name: nil
 
   @type t :: %__MODULE__{}
 end
 
 defmodule ExTwitter.Model.SearchResponse do
+  @derive Jason.Encoder
   defstruct statuses: nil, metadata: nil
 
   @type t :: %__MODULE__{}
